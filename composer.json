@@ -1,0 +1,13 @@
+{
+  
+    "repositories": {
+        "private-packagist": {
+            "type": "composer",
+            "url": "https://repo.packagist.com/memory/"
+        }
+    },
+    "require": {
+        "mszlu/memory": "^0.0.2",
+        "symfony/http-foundation": "^6.2"
+    }
+}
