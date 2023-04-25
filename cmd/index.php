@@ -19,8 +19,8 @@ $path = $request->getPathInfo();
 
 if (preg_match('/\.(?:png|jpg|jpeg|gif)$/', $path))
     return false;    // 直接返回请求的文件
-elseif (preg_match('/\.(?:service)$/', $path))
-    $server = (new Yar_Server(new Operator()))->handle();
+elseif (preg_match('/\.(service)$/', $path))
+    $server = (new Yar_Server(new StdClass()))->handle();
 else {
 //    echo "<p>Welcome to PHP</p>";
     class TimeMiddleware extends AbstractMiddleware
@@ -48,6 +48,7 @@ else {
 
         public function handle($request, MiddlewareStack $stack)
         {
+
             // TODO: Implement handle() method.
             echo "我处理了订单业务", PHP_EOL;
             return $stack->next($request);
@@ -57,7 +58,7 @@ else {
     $middlewares = [
         new TimeMiddleware(),
         new OrderMiddleware(),
-        new ErrorHandlerMiddleware()
+
     ];
     \mszl\core\Engine::getInstance("")->addMiddleware(...$middlewares)->addMiddleware(new OrderMiddleware())->run();
 //    $response = new Response();
