@@ -1,13 +1,22 @@
 {
-  
-    "repositories": {
-        "private-packagist": {
-            "type": "composer",
-            "url": "https://repo.packagist.com/memory/"
-        }
-    },
-    "require": {
-        "symfony/http-foundation": "^6.2",
-        "mszl/core": "^1.0"
+  "autoload": {
+    "psr-4": {
+      "service\\": "service/"
     }
+  },
+  "repositories": {
+    "private-packagist": {
+      "type": "composer",
+      "url": "https://repo.packagist.com/memory/"
+    },
+    "packagist": {
+      "type": "composer",
+      "url": "https://packagist.org"
+    }
+  },
+  "require": {
+    "symfony/http-foundation": "^6.2",
+    "mszl/core": "^1.1",
+    "ext-yar": "*"
+  }
 }
